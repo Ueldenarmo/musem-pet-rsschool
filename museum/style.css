@@ -9,6 +9,16 @@
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: Forum;
+    src: url("./assets/fonts/Forum/Forum-Regular.ttf");
+}
+
+@font-face {
+    font-family: Roboto;
+    src: url("./assets/fonts/Roboto\ \(1\)/.ttf");
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -18,10 +28,64 @@ body {
 }
 
 .header {
-    background-color: var(--bg-color);
-    padding: 15px 30px;
+    background: var(--bg-color);
+    padding: 20px 40px;
+    width: 100%;
+}
+
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: relative;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-svg {
+    width: 49px;
+    height: 26px;
+    margin-right: 25px;
+}
+
+.logo-text {
+    color: var(--text-color);
+    font-family: Forum, serif;
+    font-size: 28px;
+    font-weight: normal;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.nav-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    gap: 55px;
+    width: 775px;
+    height: 26px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-color);
+    font-family: Roboto, sans-serif;
+    font-size: 22px;
+    line-height: 50px;
+    font-weight: 100;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--font-gold);
+}
+
+.nav-link.active {
+    color: #7E6C51;
 }
