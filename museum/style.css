@@ -1,0 +1,27 @@
+:root {
+    --bg-color: #030303;
+    --dark-red: #710707;
+    --font-gold: #9d8665;
+    --text-color: #FFFFFF;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Roboto, sans-serif;
+}
+
+.header {
+    background-color: var(--bg-color);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
