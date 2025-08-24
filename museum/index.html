@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="normalize.css" />
     <link rel="icon" href="assets/favicon.ico" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css">
 </head>
 
 <body>
@@ -42,6 +43,40 @@
                     </a>
                 </div>
             </div>
+            <div class="swiper-container" id="gallery-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="./assets/img/welcome-slider/1.jpg" alt="Museum slide 1">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src=".assets/img/welcome-slider/2.jpg" alt="Museum slide 2">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src=".assets/img/welcome-slider/3.jpg" alt="Museum slide 3">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/img/welcome-slider/4.jpg" alt="Museum slide 4">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/img/welcome-slider/5.jpg" alt="Museum slide 5">
+                    </div>
+                </div>
+            </div>
+
+            <div class="custom-controls">
+                <div class="slide-counter">
+                    <span id="current-slide">01</span> | <span id="total-slides">05</span>
+                </div>
+
+                <div class="custom-pagination" id="custom-pagination">
+
+                </div>
+
+                <div class="custom-nav">
+                    <span class="nav-arrow" id="prev-arrow">←</span>
+                    <span class="nav-arrow" id="next-arrow">→</span>
+                </div>
+            </div>
         </section>
 
         <section class="section" id="visiting">
@@ -56,6 +91,8 @@
     <footer class="footer">
 
     </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
+    <script src="index.js"></script>
 </body>
 
 </html>
