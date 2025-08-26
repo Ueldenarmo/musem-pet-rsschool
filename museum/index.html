@@ -9,86 +9,91 @@
     <link rel="stylesheet" href="normalize.css" />
     <link rel="icon" href="assets/favicon.ico" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
 </head>
 
 <body>
     <header class="header">
         <div class="container">
-            <a href="#" class="logo-container">
-                <img src="./assets/svg/Frame.svg" alt="Louvre Logo" class="logo-svg">
-                <h1 class="logo-text">LOUVRE</h1>
-            </a>
+            <div class="header-wrapper">
+                <a href="#" class="logo-container">
+                    <img src="./assets/svg/Frame.svg" alt="Louvre Logo" class="logo-svg">
+                    <h1 class="logo-text">LOUVRE</h1>
+                </a>
 
-            <nav class="nav">
-                <ul class="nav-list">
-                    <li class="nav-item"><a href="#visiting" class="nav-link">Visiting</a></li>
-                    <li class="nav-item"><a href="#explore" class="nav-link">Explore</a></li>
-                    <li class="nav-item"><a href="#video" class="nav-link">Video</a></li>
-                    <li class="nav-item"><a href="#gallery" class="nav-link">Gallery</a></li>
-                    <li class="nav-item"><a href="#tickets" class="nav-link">Tickets</a></li>
-                    <li class="nav-item"><a href="#contacts" class="nav-link">Contacts</a></li>
-                </ul>
-            </nav>
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="#visiting" class="nav-link">Visiting</a></li>
+                        <li class="nav-item"><a href="#explore" class="nav-link">Explore</a></li>
+                        <li class="nav-item"><a href="#video" class="nav-link">Video</a></li>
+                        <li class="nav-item"><a href="#gallery" class="nav-link">Gallery</a></li>
+                        <li class="nav-item"><a href="#tickets" class="nav-link">Tickets</a></li>
+                        <li class="nav-item"><a href="#contacts" class="nav-link">Contacts</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </header>
     <main class="main">
         <section class="section" id="welcome">
-            <div class="container container-first-section">
-                <div class="welcome-text">
-                    <h2 class="section-title-dark">Welcome to the Louvre</h2>
-                    <span class="section-subtitle">From the castle to the museum</span>
-                    <a href="https://www.google.com/maps/@48.8618159,2.3366818,3a,75y,81.55h,73.4t/data=!3m7!1e1!3m5!1sAF1QipOVxZQuSy3Bx9T_HpH_7FtBHDTXvI6SF-A10ocT!2e10!3e12!7i5472!8i2736"
-                        class="btn-discover" target="_blank" rel="noopener noreferrer">
-                        Discover the Louvre
-                    </a>
-                </div>
-                <div class="container-slider">
-                    <div class="swiper-container" id="gallery-swiper">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide" data-bg="./assets/img/welcome-slider/1.jpg">
+            <div class="container">
+                <div class="first-section-wrapper">
+                    <div class="welcome-text">
+                        <h2 class="section-title-dark">Welcome <br>to the Louvre</br></h2>
+                        <span class="section-subtitle">From the castle to the museum</span>
+                        <a href="https://www.google.com/maps/@48.8618159,2.3366818,3a,75y,81.55h,73.4t/data=!3m7!1e1!3m5!1sAF1QipOVxZQuSy3Bx9T_HpH_7FtBHDTXvI6SF-A10ocT!2e10!3e12!7i5472!8i2736"
+                            class="btn-discover" target="_blank" rel="noopener noreferrer">
+                            Discover the Louvre
+                        </a>
+                    </div>
+                    <div class="container-slider">
+                        <div class="swiper-container" id="gallery-swiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide" data-bg="./assets/img/welcome-slider/1.jpg">
+                                </div>
+                                <div class="swiper-slide" data-bg="./assets/img/welcome-slider/2.jpg">
+                                </div>
+                                <div class="swiper-slide" data-bg="./assets/img/welcome-slider/3.jpg">
+                                </div>
+                                <div class="swiper-slide" data-bg="./assets/img/welcome-slider/4.jpg">
+                                </div>
+                                <div class="swiper-slide" data-bg="./assets/img/welcome-slider/5.jpg">
+                                </div>
                             </div>
-                            <div class="swiper-slide" data-bg="./assets/img/welcome-slider/2.jpg">
-                            </div>
-                            <div class="swiper-slide" data-bg="./assets/img/welcome-slider/3.jpg">
-                            </div>
-                            <div class="swiper-slide" data-bg="./assets/img/welcome-slider/4.jpg">
-                            </div>
-                            <div class="swiper-slide" data-bg="./assets/img/welcome-slider/5.jpg">
+                            <div class="custom-controls">
+                                <div class="slide-counter">
+                                    <span id="current-slide">01</span> | <span id="total-slides">05</span>
+                                </div>
+
+                                <div class="custom-pagination" id="custom-pagination"></div>
+
+                                <div class="custom-nav">
+                                    <span class="nav-arrow" id="prev-arrow">←</span>
+                                    <span class="nav-arrow" id="next-arrow">→</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-
-                <div class="custom-controls">
-                    <div class="slide-counter">
-                        <span id="current-slide">01</span> | <span id="total-slides">05</span>
-                    </div>
-
-                    <div class="custom-pagination" id="custom-pagination">
-
-                    </div>
-
-                    <div class="custom-nav">
-                        <span class="nav-arrow" id="prev-arrow">←</span>
-                        <span class="nav-arrow" id="next-arrow">→</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="section" id="visiting">
-            <div class="container"></div>
+        <section class="section section-padding" id="visiting">
+            <div class="container">
+                <div class="visiting-wrapper">
+
+                </div>
         </section>
-        <section class="section" id="explore"> </section>
-        <section class="section" id="video"> </section>
-        <section class="section" id="gallery"> </section>
-        <section class="section" id="tickets"> </section>
-        <section class="section" id="contacts"> </section>
+        <section class="section section-padding" id="explore"> </section>
+        <section class="section section-padding" id="video"> </section>
+        <section class="section section-padding" id="gallery"> </section>
+        <section class="section section-padding" id="tickets"> </section>
+        <section class="section section-padding" id="contacts"> </section>
     </main>
     <footer class="footer">
 
     </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
+
     <script src="index.js"></script>
 </body>
 

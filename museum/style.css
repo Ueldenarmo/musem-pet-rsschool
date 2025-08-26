@@ -46,12 +46,19 @@ body {
     width: 100%;
 }
 
-.container {
-    max-width: 1440px;
-    margin: 0 auto;
+.header-wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    max-width: 1440px;
+    padding: 0 20px;
+    margin: 0 auto;
 }
 
 .logo-container {
@@ -77,12 +84,10 @@ body {
 
 .nav-list {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     list-style: none;
     gap: 55px;
-    width: 775px;
-    height: 26px;
 }
 
 .nav-link {
@@ -109,16 +114,22 @@ body {
     margin: 0 auto;
 }
 
-.container {
+.first-section-wrapper {
     display: flex;
     width: 100%;
-    max-width: 1480px;
-    padding: 0 20px;
+    height: 810px;
     position: relative;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.container-first-section {
-    min-height: 810px;
+.swiper-wrapper {
+    box-sizing: border-box !important;
+    padding-bottom: 60px;
+}
+
+.section-padding {
+    padding: 75px 0;
 }
 
 #welcome {
@@ -128,12 +139,15 @@ body {
     align-items: flex-start;
     background-color: var(--bg-color);
     position: relative;
+    width: 100%;
 }
 
 .welcome-text {
     width: 100%;
     text-align: left;
     max-width: 598px;
+    z-index: 2;
+    color: var(--text-color);
 }
 
 .section-title-dark {
@@ -146,6 +160,7 @@ body {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     text-transform: uppercase;
     max-width: 100%;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
 }
 
 .section-subtitle {
@@ -156,6 +171,7 @@ body {
     margin-bottom: 40px;
     display: block;
     max-width: 100%;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
 }
 
 .btn-discover {
@@ -185,15 +201,22 @@ body {
 }
 
 .container-slider {
-    position: relative;
-    width: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1000px;
     height: 100%;
     overflow: hidden;
+    z-index: 1;
 }
 
-#welcome-swiper {
+#gallery-swiper {
     width: 100%;
     height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-left: auto;
+    margin-right: 0;
 }
 
 .swiper-slide {
@@ -202,17 +225,59 @@ body {
     height: 100%;
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: calc(100% + 0px) center;
+    background-position: right top;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+
+.swiper-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 100%;
+    background: linear-gradient(to right,
+            rgba(3, 3, 3, 0.9) 0%,
+            rgba(3, 3, 3, 0.6) 30%,
+            rgba(3, 3, 3, 0.3) 60%,
+            transparent 100%);
+    z-index: 3;
+    pointer-events: none;
+}
+
+.swiper-slide.swiper-slide-active {
+    opacity: 1;
+}
+
+.swiper-slide.bg-loaded {
+    opacity: 1;
+}
+
+.swiper-slide.bg-error {
+    background-color: var(--bg-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.swiper-slide.bg-error::after {
+    content: "picture not found";
+    color: #999;
+    font-size: 14px;
 }
 
 .custom-controls {
     position: absolute;
-    bottom: 40px;
-    right: 74px;
+    bottom: 0px;
+    right: 0px;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 30px;
+    gap: 58px;
+    z-index: 5;
+    padding: 40px 74px;
+    background: var(--bg-color);
 }
 
 .slide-counter {
@@ -220,6 +285,7 @@ body {
     font-size: 22px;
     font-weight: 300;
     min-width: 76px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
 }
 
 .custom-pagination {
@@ -261,6 +327,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
 }
 
 .nav-arrow:hover {
@@ -272,6 +340,13 @@ body {
     cursor: not-allowed;
     transform: none;
 }
+
+
+.pagination-bullet.active {
+    background: #fff;
+}
+
+
 
 .swiper-pagination,
 .swiper-button-next,

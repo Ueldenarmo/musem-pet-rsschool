@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Инициализация Swiper
     const swiper = new Swiper('#gallery-swiper', {
         slidesPerView: 1,
         spaceBetween: 0,
@@ -7,17 +6,16 @@ document.addEventListener('DOMContentLoaded', function () {
         speed: 800,
         effect: 'slide',
 
-        // Отключаем встроенную навигацию
         navigation: false,
         pagination: false,
 
-        // Callbacks
+
         on: {
             init: function () {
                 createCustomPagination(this);
                 updateSlideCounter(this);
                 updateNavigationState(this);
-                loadImages();
+                loadBackgroundImages();
             },
             slideChange: function () {
                 updateCustomPagination(this);
@@ -27,12 +25,11 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Создание кастомной пагинации (квадраты)
     function createCustomPagination(swiperInstance) {
         const paginationContainer = document.getElementById('custom-pagination');
         const slidesCount = swiperInstance.slides.length;
 
-        // Очищаем контейнер перед созданием
+
         paginationContainer.innerHTML = '';
 
         for (let i = 0; i < slidesCount; i++) {
@@ -48,7 +45,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Обновление активного состояния пагинации
     function updateCustomPagination(swiperInstance) {
         const bullets = document.querySelectorAll('.pagination-bullet');
         bullets.forEach((bullet, index) => {
@@ -56,7 +52,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Обновление счетчика слайдов
     function updateSlideCounter(swiperInstance) {
         const currentSlide = document.getElementById('current-slide');
         const totalSlides = document.getElementById('total-slides');
@@ -67,7 +62,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Обновление состояния навигационных стрелок
     function updateNavigationState(swiperInstance) {
         const prevArrow = document.getElementById('prev-arrow');
         const nextArrow = document.getElementById('next-arrow');
@@ -78,7 +72,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Обработчики для кастомных стрелок
     const prevArrow = document.getElementById('prev-arrow');
     const nextArrow = document.getElementById('next-arrow');
 
@@ -98,26 +91,26 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Загрузка изображений с эффектом
-    function loadImages() {
-        const images = document.querySelectorAll('.swiper-slide img');
-        images.forEach(img => {
-            if (img.complete) {
-                img.classList.add('loaded');
-            } else {
-                img.onload = function () {
-                    this.classList.add('loaded');
-                };
-                // Обработка ошибок загрузки
-                img.onerror = function () {
-                    console.warn('Не удалось загрузить изображение:', this.src);
-                    this.style.display = 'none';
-                };
-            }
+    function loadBackgroundImages() {
+        const slides = document.querySelectorAll('.swiper-slide[data-bg]');
+
+        slides.forEach(slide => {
+            const bgImage = slide.getAttribute('data-bg');
+            if (!bgImage) return;
+
+            const img = new Image();
+            img.onload = function () {
+                slide.style.backgroundImage = `url(${bgImage})`;
+                slide.classList.add('bg-loaded');
+            };
+            img.onerror = function () {
+                console.warn('Не удалось загрузить фоновое изображение:', bgImage);
+                slide.classList.add('bg-error');
+            };
+            img.src = bgImage;
         });
     }
 
-    // Клавиатурное управление
     document.addEventListener('keydown', function (e) {
         if (e.key === 'ArrowLeft') {
             swiper.slidePrev();
@@ -126,7 +119,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Поддержка свайпов на мобильных устройствах
     let touchStartX = 0;
     let touchEndX = 0;
 
@@ -156,6 +148,5 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Expose swiper instance globally for debugging (optional)
     window.gallerySwiper = swiper;
 });
