@@ -100,6 +100,11 @@ body {
     width: 100%;
     max-width: 1480px;
     padding: 0 20px;
+    position: relative;
+}
+
+.container-first-section {
+    min-height: 810px;
 }
 
 #welcome {
@@ -109,7 +114,6 @@ body {
     align-items: flex-start;
     background-color: var(--bg-color);
     position: relative;
-    height: 810px;
 }
 
 .welcome-text {
@@ -169,7 +173,7 @@ body {
 .container-slider {
     position: relative;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     overflow: hidden;
 }
 
@@ -188,6 +192,9 @@ body {
 }
 
 .custom-controls {
+    position: absolute;
+    bottom: 40px;
+    right: 74px;
     display: flex;
     justify-content: center;
     align-items: center;
