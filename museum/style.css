@@ -548,9 +548,44 @@ body {
 }
 
 .explore-image {
-    flex: 1;
     width: 50%;
-    display: flex;
-    justify-content: center;
     height: auto;
+}
+
+.explore-image-before {
+    width: 100%;
+    height: auto;
+}
+
+.video-wrapper {
+    width: 100%;
+    position: relative;
+    margin: 0 auto;
+}
+
+
+.video-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 115px;
+}
+
+.section-title-video {
+    flex-shrink: 0;
+    margin-bottom: 0;
+}
+
+#video .section-title-light::after {
+    display: none;
+}
+
+.video-description {
+    font-family: 'Roboto', sans-serif;
+    font-size: 22px;
+    font-weight: 100;
+    line-height: auto;
+    text-align: left;
+    flex: 1;
+    max-width: 55%;
 }
