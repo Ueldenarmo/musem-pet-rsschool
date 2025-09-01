@@ -9,6 +9,16 @@
     box-sizing: border-box;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
 @font-face {
     font-family: Forum;
     src: url("./assets/fonts/Forum/Forum-Regular.ttf");
@@ -490,6 +500,7 @@ body {
     margin: 0 auto;
     display: flex;
     align-items: stretch;
+    gap: 60px;
 }
 
 
@@ -523,10 +534,8 @@ body {
 .explore-content {
     display: flex;
     flex-direction: column;
-    margin-bottom: 25px;
-    margin-right: 60px;
     align-items: flex-start;
-    width: 100%;
+    width: 50%;
 }
 
 
@@ -567,7 +576,7 @@ body {
 .video-text {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     gap: 115px;
 }
 
@@ -584,8 +593,11 @@ body {
     font-family: 'Roboto', sans-serif;
     font-size: 22px;
     font-weight: 100;
-    line-height: auto;
+    line-height: 38.5px;
     text-align: left;
     flex: 1;
     max-width: 55%;
+    margin-block-start: 0;
+    margin-block-end: 0;
+
 }
