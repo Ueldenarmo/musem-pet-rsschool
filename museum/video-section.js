@@ -1,4 +1,4 @@
-// Video Section JavaScript
+// Video Section JavaScript - Complete Version
 (function () {
     'use strict';
 
@@ -10,6 +10,10 @@
     }
 
     function initVideoSection() {
+        // Check if video section exists on the page
+        const videoSection = document.getElementById('video');
+        if (!videoSection) return;
+
         // Initialize Swiper only if element exists
         initSwiper();
 
@@ -37,10 +41,12 @@
             spaceBetween: 42,
             slidesPerGroup: 1,
             loop: true,
-            loopFillGroupWithBlank: false,
             pagination: {
                 el: '.swiper-pagination',
-                clickable: true
+                clickable: true,
+                renderBullet: function (index, className) {
+                    return '<span class="' + className + '"></span>';
+                }
             },
             navigation: {
                 nextEl: '.swiper-button-next',
@@ -113,6 +119,11 @@
             mainPlayBtn.addEventListener('click', function () {
                 console.log('Main video play clicked');
                 // Add your main video play logic here
+                // Example: Load and play the main video
+                const videoPoster = document.querySelector('.video-poster');
+                if (videoPoster) {
+                    // You can add video element creation and play logic here
+                }
             });
         }
 
@@ -127,11 +138,11 @@
                 const playIcon = this.querySelector('.play-icon');
                 if (playIcon) {
                     if (isPlaying) {
-                        // Change to pause icon
-                        playIcon.style.cssText = 'width: 20px; height: 20px; border: none; background: linear-gradient(to right, #fff 35%, transparent 35%, transparent 65%, #fff 65%);';
+                        // Change to pause icon (two vertical bars)
+                        playIcon.style.cssText = 'width: 20px; height: 30px; border: none; background: linear-gradient(to right, #B3B3B3 35%, transparent 35%, transparent 65%, #B3B3B3 65%);';
                     } else {
                         // Change back to play icon
-                        playIcon.style.cssText = 'width: 0; height: 0; border-left: 15px solid #fff; border-top: 10px solid transparent; border-bottom: 10px solid transparent; background: none;';
+                        playIcon.style.cssText = 'width: 0; height: 0; border-left: 23px solid #B3B3B3; border-top: 15px solid transparent; border-bottom: 15px solid transparent; background: none;';
                     }
                 }
 
@@ -218,14 +229,17 @@
 
         if (volumeValue === 0) {
             // Muted icon
-            volumeIcon.style.backgroundImage = 'url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5V9.27l5.25 5.25c-.83.66-1.75 1.18-2.75 1.45v2.06c1.65-.29 3.16-.99 4.47-2.02l2.76 2.76 1.27-1.27L4.27 3zm7.73 10.27L12 17l-3-3v-.73l3-3v2.73z"/></svg>\')';
+            volumeIcon.style.backgroundImage = 'url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23B3B3B3" viewBox="0 0 24 24"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5V9.27l5.25 5.25c-.83.66-1.75 1.18-2.75 1.45v2.06c1.65-.29 3.16-.99 4.47-2.02l2.76 2.76 1.27-1.27L4.27 3zm7.73 10.27L12 17l-3-3v-.73l3-3v2.73z"/></svg>\')';
         } else if (volumeValue < 50) {
             // Low volume icon
-            volumeIcon.style.backgroundImage = 'url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24"><path d="M7 9v6h4l5 5V4L11 9H7zm9.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>\')';
+            volumeIcon.style.backgroundImage = 'url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23B3B3B3" viewBox="0 0 24 24"><path d="M7 9v6h4l5 5V4L11 9H7zm9.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>\')';
         } else {
             // Normal volume icon
-            volumeIcon.style.backgroundImage = 'url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>\')';
+            volumeIcon.style.backgroundImage = 'url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23B3B3B3" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>\')';
         }
+
+        // Also update the background size to maintain the custom dimensions
+        volumeIcon.style.backgroundSize = '38px 31px';
     }
 
 })();
