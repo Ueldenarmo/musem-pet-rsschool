@@ -1,0 +1,26 @@
+.tickets-wrapper {
+    width: 100%;
+    position: relative;
+    margin: 0 auto;
+}
+
+.tickets-content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 75px;
+}
+
+.tickets-image {
+    width: 50%;
+}
+
+.title-for-list {
+    font-family: 'Roboto', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 40px;
+    text-align: left;
+    margin-bottom: 20px;
+}
