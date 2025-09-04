@@ -354,7 +354,53 @@
                 </div>
             </div>
         </section>
-        <section class="section section-padding" id="tickets"> </section>
+
+        <section class="section section-padding" id="tickets">
+            <div class="container">
+                <div class="tickets-wrapper">
+                    <div class="tickets-head">
+                        <h2 class="section-title-light section-title-tickets">Buy tickets</h2>
+                    </div>
+                    <div class="tickets-content">
+                        <div class="tickets-image">
+                            <img src="./assets/img/Rectangle.png" alt="Beautifull art">
+                        </div>
+                        <div class="tickets-type-list">
+                            <h4 class="title-for-list">Ticket Type</h4>
+                            <label class="container">Permanent exhibition
+                                <input type="radio" checked="checked" name="radio">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="container">Temporary exhibition
+                                <input type="radio" name="radio">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="container">Combined Admission
+                                <input type="radio" name="radio">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <div class="tickets-amount">
+                            <h4 class="title-for-list">Amount</h4>
+                            <div class="amount-selector-basic">
+                                <p class="amount-name">Basic 18+</p>
+                                <button type="button" onclick="this.nextElementSibling.stepDown()">-</button>
+                                <input type="number" min="0" max="20" value="1" readonly class="number">
+                                <button type="button" onclick="this.previousElementSibling.stepUp()">+</button>
+                            </div>
+                            <div class="amount-selector-senior">
+                                <p class="amount-name">Senior 65+</p>
+                                <button type="button" onclick="this.nextElementSibling.stepDown()">-</button>
+                                <input type="number" min="0" max="20" value="1" readonly class="number">
+                                <button type="button" onclick="this.previousElementSibling.stepUp()">+</button>
+                            </div>
+                            <p class="tickets-note">Total € 220</p>
+                            <!-- не забыть поставить кнопку бай нау -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         <section class="section section-padding" id="contacts"> </section>
     </main>
     <footer class="footer">

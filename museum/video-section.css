@@ -332,7 +332,7 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: url('assets/favicon.ico') center/cover;
+    background: url('museum/assets/') center/cover;
 }
 
 .more-btn {
