@@ -16,11 +16,77 @@
     width: 50%;
 }
 
+.tickets-type-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+
 .title-for-list {
     font-family: 'Roboto', sans-serif;
-    font-size: 36px;
-    font-weight: 700;
-    line-height: 40px;
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 33px;
     text-align: left;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
+}
+
+.tickets-options {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font: 100 22px 'Roboto', sans-serif;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.tickets-options input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 17px;
+    width: 17px;
+    background-color: transparent;
+    border-radius: 50%;
+    border: 2px solid var(--bg-color);
+}
+
+.tickets-options input:checked~.checkmark {
+    background-color: transparent;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.tickets-options input:checked~.checkmark:after {
+    display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.tickets-options .checkmark:after {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--bg-color);
 }
