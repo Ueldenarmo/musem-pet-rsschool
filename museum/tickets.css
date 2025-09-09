@@ -26,62 +26,48 @@
 .title-for-list {
     font-family: 'Roboto', sans-serif;
     font-size: 28px;
-    font-weight: 600;
+    font-weight: 700;
     line-height: 33px;
-    text-align: left;
-    margin-bottom: 40px;
+    margin-bottom: 25px;
 }
 
 .tickets-options {
-    display: block;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     position: relative;
-    padding-left: 35px;
-    margin-bottom: 12px;
     cursor: pointer;
     font: 100 22px 'Roboto', sans-serif;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    gap: 8px;
+    margin-top: 25px;
 }
 
-/* Hide the browser's default radio button */
 .tickets-options input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
 }
 
-/* Create a custom radio button */
 .checkmark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 17px;
-    width: 17px;
+    position: relative;
+    height: 18px;
+    width: 18px;
     background-color: transparent;
     border-radius: 50%;
     border: 2px solid var(--bg-color);
 }
 
-.tickets-options input:checked~.checkmark {
-    background-color: transparent;
-}
-
-/* Create the indicator (the dot/circle - hidden when not checked) */
 .checkmark:after {
     content: "";
-    position: absolute;
-    display: none;
-}
-
-/* Show the indicator (dot/circle) when checked */
-.tickets-options input:checked~.checkmark:after {
     display: block;
-}
-
-/* Style the indicator (dot/circle) */
-.tickets-options .checkmark:after {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -89,4 +75,84 @@
     height: 7px;
     border-radius: 50%;
     background: var(--bg-color);
+}
+
+.tickets-options input:checked~.checkmark:after {
+    opacity: 1;
+    visibility: visible;
+}
+
+.tickets-amount {
+    display: flex;
+    flex-direction: column;
+    gap: 15px 0px;
+}
+
+.amount-selector-basic,
+.amount-selector-senior {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 3px solid var(--bg-color);
+    padding: 6px 14px;
+    background-color: transparent;
+    overflow: hidden;
+}
+
+.amount-name {
+    flex: 1;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 22px;
+    font-weight: 100;
+}
+
+.amount-selector-basic button,
+.amount-selector-senior button {
+    border: none;
+    background-color: transparent;
+    color: var(--bg-color);
+    font-size: 32px;
+    font-weight: 300;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+}
+
+.amount-selector-basic button:hover,
+.amount-selector-senior button:hover {
+    background-color: #E7E7E7;
+}
+
+.amount-selector-basic .number,
+.amount-selector-senior .number {
+    border: none;
+    background: transparent;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 100;
+    color: var(--bg-color);
+    font-family: 'Roboto', sans-serif;
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+    appearance: none;
+    padding-left: 23px;
+    padding-right: 22px;
+}
+
+.amount-selector-basic .number::-webkit-outer-spin-button,
+.amount-selector-basic .number::-webkit-inner-spin-button,
+.amount-selector-senior .number::-webkit-outer-spin-button,
+.amount-selector-senior .number::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.tickets-note {
+    margin-top: 50px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 28px;
+    font-weight: 600;
 }
