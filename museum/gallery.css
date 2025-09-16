@@ -2,3 +2,55 @@
     background-color: var(--bg-color);
     color: var(--text-color);
 }
+
+.gallery-wrapper {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-wrapper::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 2), transparent);
+    pointer-events: none;
+    z-index: 2;
+}
+
+
+.picture-container {
+    width: 100%;
+    max-height: 2200px;
+    margin: 0 auto;
+    overflow-y: hidden;
+    position: relative;
+    margin-top: 75px;
+}
+
+.picture-inner-container {
+    column-count: 3;
+    column-gap: 30px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.gallery-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 20px;
+    break-inside: avoid;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.gallery-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    position: relative;
+}
