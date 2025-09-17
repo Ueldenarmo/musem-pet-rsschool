@@ -146,6 +146,10 @@ body {
     width: 100%;
 }
 
+.footer .container {
+    display: block;
+}
+
 .footer-wrapper {
     display: flex;
     justify-content: space-between;
@@ -164,7 +168,7 @@ body {
 
 .footer-list .nav-list {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px 60px;
     list-style: none;
     padding: 0;
@@ -221,12 +225,30 @@ body {
 .footer-bottom {
     margin-top: 50px;
     padding-top: 50px;
-    border-top: 2px solid #666666;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
+.footer-bottom::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    height: 2px;
+    background-color: #666666;
+}
+
+.footer-copyright {
+    font-family: 'Roboto', sans-serif;
+    font-size: 22px;
+    font-weight: 100;
+    letter-spacing: 2px;
+    color: var(--text-color);
+}
 
 .footer-author {
     font-family: 'Roboto', sans-serif;
